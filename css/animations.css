@@ -1,0 +1,136 @@
+/* VALCOR motion system — refined, responsive, and reduced-motion friendly. */
+@keyframes hero-drift {
+  0% { transform: scale(1.035) translate3d(0, 0, 0); }
+  100% { transform: scale(1.09) translate3d(-.5%, .4%, 0); }
+}
+@keyframes scroll-pulse {
+  0%, 100% { transform: scaleY(.55); transform-origin: top; opacity: .45; }
+  50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+}
+@keyframes loader-line {
+  0% { transform: translateX(-110%); }
+  100% { transform: translateX(360%); }
+}
+@keyframes soft-glow {
+  0%, 100% { opacity: .22; transform: scale(.94); }
+  50% { opacity: .52; transform: scale(1.06); }
+}
+
+/* Scroll reveals use a short lift and a soft blur for a more dimensional entrance. */
+[data-reveal] {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translate3d(0, 34px, 0);
+  transition:
+    opacity .9s cubic-bezier(.19, 1, .22, 1),
+    transform .95s cubic-bezier(.19, 1, .22, 1),
+    filter .9s cubic-bezier(.19, 1, .22, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+[data-reveal="left"] { transform: translate3d(-42px, 0, 0); }
+[data-reveal="right"] { transform: translate3d(42px, 0, 0); }
+[data-reveal="down"] { transform: translate3d(0, -28px, 0); }
+[data-reveal="scale"] { transform: scale(.94); }
+[data-reveal].is-revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: none;
+  will-change: auto;
+}
+
+/* Image frames ease forward from a slightly cinematic zoom. */
+[data-image-motion] { overflow: hidden; }
+[data-image-motion] img {
+  transform: scale(1.12);
+  transition: transform 1.35s cubic-bezier(.19, 1, .22, 1), filter .7s ease;
+}
+[data-image-motion].is-image-revealed img { transform: scale(1.045); }
+.service-card__image[data-image-motion].is-image-revealed img,
+.gallery-item__image[data-image-motion].is-image-revealed img { transform: scale(1.045); }
+.image-frame img,
+.service-card__image img,
+.gallery-item__image img,
+.profile-sector img { translate: 0 var(--scroll-shift, 0px); }
+.service-card:hover .service-card__image img,
+.gallery-item:hover .gallery-item__image img { transform: scale(1.09); }
+.profile-sector:hover img { transform: scale(1.09); }
+
+/* Background depth responds to the scroll position without moving page content. */
+.home-hero__background,
+.cta-band__image { translate: 0 var(--scroll-shift, 0px); }
+.page-hero { background-position: center calc(50% + var(--scroll-shift, 0px)); }
+
+/* Refined interactions: responsive cards, arrows and navigation details. */
+.service-card,
+.profile-card,
+.division-cards > a {
+  transform-style: preserve-3d;
+  transition: transform .55s cubic-bezier(.19, 1, .22, 1), box-shadow .55s ease, border-color .35s ease, background .35s ease;
+}
+.service-card[data-reveal].is-revealed:hover {
+  transform: perspective(900px) translateY(-8px) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .12);
+}
+.profile-card:hover,
+.division-cards > a:hover {
+  transform: perspective(900px) translateY(-5px) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg));
+}
+.button { position: relative; overflow: hidden; }
+.button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,.22) 48%, transparent 76%);
+  transform: translateX(-130%);
+  transition: transform .75s cubic-bezier(.2, .7, .2, 1);
+  pointer-events: none;
+}
+.button:hover::after { transform: translateX(130%); }
+.nav-links > a,
+.nav-services__trigger,
+.footer-column a { position: relative; }
+.nav-links > a::after,
+.nav-services__trigger::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .35s cubic-bezier(.19, 1, .22, 1);
+}
+.nav-links > a:hover::after,
+.nav-links > a[aria-current="page"]::after,
+.nav-services__trigger:hover::after { transform: scaleX(1); transform-origin: left; }
+.footer-column a { transition: color .3s ease, transform .3s ease; }
+.footer-column a:hover { transform: translateX(4px); }
+
+/* A little extra motion in the page's fixed navigation cues. */
+.scroll-progress { transform-origin: left center; will-change: width; }
+.back-to-top { transition: opacity .35s ease, visibility .35s ease, transform .45s cubic-bezier(.19, 1, .22, 1), background .25s ease; }
+.back-to-top:hover { transform: translateY(-5px) rotate(45deg); background: #333; }
+.whatsapp-float { transition: transform .4s cubic-bezier(.19, 1, .22, 1), box-shadow .4s ease; }
+.whatsapp-float:hover { transform: translateY(-6px) scale(1.025); box-shadow: 0 15px 38px rgba(0,0,0,.17); }
+
+@media (max-width: 900px) {
+  [data-reveal] { transform: translate3d(0, 24px, 0); }
+  [data-reveal="left"] { transform: translate3d(-26px, 0, 0); }
+  [data-reveal="right"] { transform: translate3d(26px, 0, 0); }
+  .service-card[data-reveal].is-revealed:hover { transform: translateY(-4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] { opacity: 1; filter: none; transform: none; }
+  [data-image-motion] img { transform: none; translate: none; }
+  .home-hero__background { animation: none; }
+}
