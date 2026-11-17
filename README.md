@@ -1,77 +1,69 @@
-# Obsidian Cleaning — Static Website
+# Obsidian Cleaning — Website
 
-A multi-page corporate cleaning and hygiene website built using **HTML5, CSS3 and vanilla JavaScript only**. No frontend framework or build step is required.
+A responsive, multi-page website for **Obsidian Cleaning**, built with HTML5, CSS3 and vanilla JavaScript. It has no framework, package installation or build step.
+
+## Important: GitHub Pages folder structure
+
+This ZIP is packaged with `index.html` and all website folders at the ZIP root. After extracting it, the folder you upload/push must contain these items directly:
+
+- `index.html`
+- `about.html`, `services.html`, `contact.html`, `quote.html` and the other page files
+- `css/`
+- `js/`
+- `assets/`
+- `.nojekyll`
+
+**Do not upload only the ZIP file, and do not leave the website inside an extra nested `Obsidian_Cleaning-main` folder in your GitHub repository.** GitHub Pages needs `index.html` in the publishing folder.
+
+## Publish with GitHub Pages
+
+1. Extract the ZIP on your computer.
+2. Open the extracted website folder. Confirm that `index.html` is visible alongside `css`, `js` and `assets`.
+3. Upload/push the contents of that folder to the top level of your GitHub repository (the repository root).
+4. In GitHub, open **Settings → Pages**.
+5. Under **Build and deployment**, choose **Deploy from a branch**.
+6. Select your publishing branch (normally `main`) and select **/(root)** as the folder, then save.
+7. Open the Pages URL shown in Settings → Pages after the deployment finishes. Hard-refresh the browser if it is showing an older cached version.
+
+The website uses relative file paths, so it works from a GitHub Pages project URL as well as from a custom domain. `.nojekyll` tells GitHub Pages to serve the static site without Jekyll processing.
 
 ## Run locally
 
-1. Extract the ZIP file.
-2. Open `index.html` in a browser, or use a static file server such as VS Code Live Server.
-3. Use the navigation to explore the separate pages.
+Open `index.html` directly in a browser or use VS Code Live Server. No `npm install` or build command is needed.
 
 ## Pages included
 
 - `index.html` — Home
-- `about.html` — Company, purpose, mission, vision and values
-- `services.html` — Integrated service portfolio
-- `contract-cleaning.html` — Scheduled contract cleaning
-- `hygiene-services.html` — Washroom hygiene programmes
-- `consumables-supply.html` — Cleaning and janitorial consumables
-- `specialised-cleaning.html` — Specialist cleaning services
+- `about.html` — About Obsidian Cleaning
+- `services.html` — Service portfolio
+- `contract-cleaning.html` — Contract cleaning
+- `hygiene-services.html` — Washroom hygiene
+- `consumables-supply.html` — Consumables supply
+- `specialised-cleaning.html` — Specialist cleaning
 - `project-once-off-cleaning.html` — Project and once-off cleaning
-- `commercial-cleaning.html` — Commercial division
-- `corporate-cleaning.html` — Corporate division
-- `industrial-cleaning.html` — Industrial division
-- `industries.html` — Property types and client environments
-- `gallery.html` — Illustrative image gallery and lightbox
+- `commercial-cleaning.html` — Commercial cleaning
+- `corporate-cleaning.html` — Corporate cleaning
+- `industrial-cleaning.html` — Industrial cleaning
+- `industries.html` — Industries served
+- `gallery.html` — Illustrative image gallery
 - `quote.html` — Quotation enquiry form
 - `contact.html` — Contact details and enquiry form
 
-## Company profile content
+## Brand and contact settings
 
-The site content has been aligned to the supplied six-page Obsidian Cleaning mock company profile. It covers the five portfolio lines (contract cleaning, washroom hygiene, consumables supply, specialist cleaning, and project/once-off cleaning), the four washroom hygiene categories, equipment rental and purchase options, target sectors, the five-step service process, quality controls and responsible practices.
+The website is branded only as **Obsidian Cleaning**. The logo files are in `assets/logos/` and the favicon is in `assets/icons/`.
 
-The profile describes Obsidian Cleaning as an operating company within Valcor Group, focused on Durban and KwaZulu-Natal.
+The telephone number currently shown is `069 131 5387`. The service area is Durban, KwaZulu-Natal, South Africa; no street address is published. The old group-branded email address has intentionally not been carried forward. Add Obsidian Cleaning's verified email address in `js/config.js` when it is available. Add a WhatsApp number there only after confirming that it is a WhatsApp contact.
 
-## Contact information in `js/config.js`
+Until a verified email address or WhatsApp number is configured, enquiry forms will validate the visitor's details and explain that the enquiry has not been sent. This is a static website: it does not store or automatically transmit submissions. Connect a trusted form service or backend to enable automatic submission and storage.
 
-The mock profile lists:
+## Imagery and animation
 
-- Telephone: `069 131 5387`
-- Email: `Sales@valcor.co.za`
-- Service location: `Durban, KwaZulu-Natal, South Africa`
-
-WhatsApp is intentionally left blank because the profile does not identify the phone number as a WhatsApp contact. The location is a service-area description, not a street address.
-
-**Confirm all company details and service availability before publishing.** The profile is a mock/example document; the live website should be reviewed and approved by the company.
-
-## Domain and deployment
-
-The deployment domain has not been supplied, so the package does not hard-code a sitemap URL or canonical domain. Add these after the live domain is confirmed.
-
-## Forms
-
-Forms validate in the browser and prepare an email to the configured sales address using `mailto:`. The visitor must review and send the email. This static site does not send or store submissions on a server. To enable automatic submission, database storage or an enquiry dashboard, connect a backend or trusted form service later.
-
-## Branding and imagery
-
-The supplied Obsidian Cleaning artwork is stored at `assets/logos/obsidian-cleaning-logo-full.png`. Representative cleaning and workplace photographs currently load from Unsplash. They are illustrative examples, not claims about completed Obsidian projects. Replace them with approved company photography when available.
-
-## Motion and scroll animations
-
-The shared motion system adds scroll-triggered entrances across page heroes, section headings, service and sector cards, image galleries, forms, and footer content. Images ease in with a soft zoom, large backgrounds and visible photos use restrained scroll-depth movement, and cards/buttons/navigation include polished hover interactions. The effects are built with vanilla JavaScript and CSS, run across all 15 pages, and respect the visitor’s reduced-motion accessibility preference.
+The supplied Obsidian Cleaning logo artwork is in `assets/logos/`. Some service and workplace photographs load from Unsplash and are illustrative examples, not claims about completed Obsidian projects. The site includes responsive layouts, navigation interactions, scroll effects and reduced-motion support.
 
 ## Technology
 
-- HTML5 pages
-- CSS3 stylesheets
+- HTML5
+- CSS3 (including responsive styles)
 - Vanilla JavaScript
-- No React, Next.js, Tailwind, Bootstrap, jQuery or frontend frameworks
-
-
-## Brand logo assets
-- `assets/logos/obsidian-cleaning-logo-full.png` is the supplied full vertical Obsidian Cleaning lockup used for the page loader and social previews.
-- `assets/logos/obsidian-cleaning-logo.png` is the transparent horizontal wordmark for light backgrounds and the site header.
-- `assets/logos/obsidian-cleaning-logo-white.png` is the matching white wordmark for dark backgrounds such as the footer.
-- `assets/icons/favicon.svg` uses the updated Obsidian-inspired mark.
-
-The parent-company reference remains **Valcor Group**. The existing sales email address remains `Sales@valcor.co.za` because a replacement address was not provided.
+- No React, Next.js, Tailwind, Bootstrap, jQuery or build tooling

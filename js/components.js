@@ -4,7 +4,7 @@
   const footerLogo = 'assets/logos/obsidian-cleaning-logo-white.png';
   const phone = config.telephone || 'Telephone to be confirmed';
   const phoneLink = config.telephoneLink || '';
-  const email = config.email || 'Email to be confirmed';
+  const email = (config.email || '').trim();
   const serviceLinks = [
     ['Contract Cleaning','contract-cleaning.html'],
     ['Washroom Hygiene','hygiene-services.html'],
@@ -18,9 +18,9 @@
   ];
   const serviceMenu = serviceLinks.map(([label, href]) => `<a href="${href}">${label}<span>↗</span></a>`).join('');
   const phoneMarkup = phoneLink ? `<a href="tel:${phoneLink}">${phone}</a>` : `<span>${phone}</span>`;
-  const emailMarkup = email ? `<a href="mailto:${email}">${email}</a>` : `<span>${email}</span>`;
+  const emailMarkup = email ? `<a href="mailto:${email}">${email}</a>` : '';
   const header = `
-    <div class="topbar"><div class="container topbar__inner"><div class="topbar__left"><span>A Valcor Group company</span><span class="topbar__dot"></span><span>Durban · KwaZulu-Natal</span></div><div class="topbar__right">${phoneMarkup}<span class="topbar__dot"></span>${emailMarkup}</div></div></div>
+    <div class="topbar"><div class="container topbar__inner"><div class="topbar__left"><span>Obsidian Cleaning</span><span class="topbar__dot"></span><span>Durban · KwaZulu-Natal</span></div><div class="topbar__right">${phoneMarkup}${emailMarkup ? `<span class="topbar__dot"></span>${emailMarkup}` : ''}</div></div></div>
     <header class="site-header" data-header><div class="container nav-main">
       <a class="brand" href="index.html" aria-label="Obsidian Cleaning home"><img src="${logo}" alt="Obsidian Cleaning — Cleaner Spaces. Brighter Businesses."></a>
       <nav class="nav-links" aria-label="Main navigation">
@@ -39,11 +39,11 @@
     </nav>`;
   const footer = `
     <footer class="site-footer"><div class="container footer-main">
-      <div class="footer-brand"><a href="index.html"><img src="${footerLogo}" alt="Obsidian Cleaning"></a><p>Professional cleaning and hygiene solutions for healthier, better-presented spaces. A Valcor Group company based in Durban, KwaZulu-Natal.</p><small class="footer-group">A VALCOR GROUP COMPANY</small></div>
+      <div class="footer-brand"><a href="index.html"><img src="${footerLogo}" alt="Obsidian Cleaning"></a><p>Professional cleaning and hygiene solutions for healthier, better-presented spaces in Durban, KwaZulu-Natal.</p></div>
       <div class="footer-column"><h3>Explore</h3><a href="index.html">Home</a><a href="about.html">About Obsidian</a><a href="services.html">Our service portfolio</a><a href="industries.html">Who we serve</a><a href="gallery.html">Illustrative gallery</a><a href="contact.html">Contact</a></div>
       <div class="footer-column"><h3>Services</h3><a href="contract-cleaning.html">Contract cleaning</a><a href="hygiene-services.html">Washroom hygiene</a><a href="consumables-supply.html">Consumables supply</a><a href="specialised-cleaning.html">Specialist cleaning</a><a href="project-once-off-cleaning.html">Project & once-off</a></div>
-      <div class="footer-column"><h3>Contact Obsidian</h3><p>Durban, KwaZulu-Natal, South Africa</p>${phoneLink ? `<a href="tel:${phoneLink}">${phone}</a>` : `<p>${phone}</p>`}<a href="mailto:${email}">${email}</a><a href="quote.html">Request a quotation ↗</a><p class="footer-placeholder">Service scope, availability and pricing are confirmed in the relevant quotation and service agreement.</p></div>
-    </div><div class="container footer-bottom"><span>© <span data-year></span> Obsidian Cleaning. All rights reserved.</span><div class="footer-bottom__links"><span>A Valcor Group company</span><span>Cleaner spaces. Brighter businesses.</span></div></div></footer>`;
+      <div class="footer-column"><h3>Contact Obsidian</h3><p>Durban, KwaZulu-Natal, South Africa</p>${phoneLink ? `<a href="tel:${phoneLink}">${phone}</a>` : `<p>${phone}</p>`}${email ? `<a href="mailto:${email}">${email}</a>` : `<p>Email details to be confirmed</p>`}<a href="quote.html">Request a quotation ↗</a><p class="footer-placeholder">Service scope, availability and pricing are confirmed in the relevant quotation and service agreement.</p></div>
+    </div><div class="container footer-bottom"><span>© <span data-year></span> Obsidian Cleaning. All rights reserved.</span><div class="footer-bottom__links"><span>Durban · KwaZulu-Natal</span><span>Cleaner spaces. Brighter businesses.</span></div></div></footer>`;
 
   document.querySelectorAll('[data-site-header]').forEach(el => el.innerHTML = header);
   document.querySelectorAll('[data-site-footer]').forEach(el => el.innerHTML = footer);
