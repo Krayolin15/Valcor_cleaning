@@ -1,4 +1,4 @@
-# Valcor Cleaning & Hygiene — Static Website
+# Obsidian Cleaning — Static Website
 
 A multi-page corporate cleaning and hygiene website built using **HTML5, CSS3 and vanilla JavaScript only**. No frontend framework or build step is required.
 
@@ -28,9 +28,9 @@ A multi-page corporate cleaning and hygiene website built using **HTML5, CSS3 an
 
 ## Company profile content
 
-The site content has been aligned to the supplied six-page Valcor Cleaning & Hygiene mock company profile. It covers the five portfolio lines (contract cleaning, washroom hygiene, consumables supply, specialist cleaning, and project/once-off cleaning), the four washroom hygiene categories, equipment rental and purchase options, target sectors, the five-step service process, quality controls and responsible practices.
+The site content has been aligned to the supplied six-page Obsidian Cleaning mock company profile. It covers the five portfolio lines (contract cleaning, washroom hygiene, consumables supply, specialist cleaning, and project/once-off cleaning), the four washroom hygiene categories, equipment rental and purchase options, target sectors, the five-step service process, quality controls and responsible practices.
 
-The profile describes Valcor Cleaning & Hygiene as an operating company within Valcor Group, focused on Durban and KwaZulu-Natal.
+The profile describes Obsidian Cleaning as an operating company within Valcor Group, focused on Durban and KwaZulu-Natal.
 
 ## Contact information in `js/config.js`
 
@@ -54,7 +54,7 @@ Forms validate in the browser and prepare an email to the configured sales addre
 
 ## Branding and imagery
 
-The supplied Valcor Cleaning logo is stored at `assets/logos/valcor-cleaning-logo.jpg`. Representative cleaning and workplace photographs currently load from Unsplash. They are illustrative examples, not claims about completed Valcor projects. Replace them with approved company photography when available.
+The supplied Obsidian Cleaning artwork is stored at `assets/logos/obsidian-cleaning-logo-full.png`. Representative cleaning and workplace photographs currently load from Unsplash. They are illustrative examples, not claims about completed Obsidian projects. Replace them with approved company photography when available.
 
 ## Motion and scroll animations
 
@@ -69,6 +69,9 @@ The shared motion system adds scroll-triggered entrances across page heroes, sec
 
 
 ## Brand logo assets
-- `assets/logos/valcor-cleaning-logo.png` is the transparent black mark for light backgrounds and the header.
-- `assets/logos/valcor-cleaning-logo-white.png` is the transparent white mark for dark backgrounds such as the footer.
-- The original JPEG is retained as the untouched source artwork.
+- `assets/logos/obsidian-cleaning-logo-full.png` is the supplied full vertical Obsidian Cleaning lockup used for the page loader and social previews.
+- `assets/logos/obsidian-cleaning-logo.png` is the transparent horizontal wordmark for light backgrounds and the site header.
+- `assets/logos/obsidian-cleaning-logo-white.png` is the matching white wordmark for dark backgrounds such as the footer.
+- `assets/icons/favicon.svg` uses the updated Obsidian-inspired mark.
+
+The parent-company reference remains **Valcor Group**. The existing sales email address remains `Sales@valcor.co.za` because a replacement address was not provided.

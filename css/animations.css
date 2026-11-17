@@ -1,4 +1,4 @@
-/* VALCOR motion system — refined, responsive, and reduced-motion friendly. */
+/* OBSIDIAN motion system — refined, responsive, and reduced-motion friendly. */
 @keyframes hero-drift {
   0% { transform: scale(1.035) translate3d(0, 0, 0); }
   100% { transform: scale(1.09) translate3d(-.5%, .4%, 0); }

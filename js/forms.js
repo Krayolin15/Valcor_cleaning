@@ -1,5 +1,5 @@
 (() => {
-  const config = window.VALCOR_CONFIG || {};
+  const config = window.OBSIDIAN_CONFIG || {};
   const clean = value => String(value || '').trim();
   const validEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   const setStatus = (form,text,type='success') => {
@@ -20,7 +20,7 @@
   };
   const values = form => Object.fromEntries(new FormData(form).entries());
   const enquiryText = data => [
-    'VALCOR CLEANING & HYGIENE — WEBSITE ENQUIRY','',
+    'OBSIDIAN CLEANING — WEBSITE ENQUIRY','',
     `Name: ${clean(data.firstName)} ${clean(data.lastName)}`,
     `Company: ${clean(data.company) || 'Not provided'}`,
     `Email: ${clean(data.email)}`,
@@ -44,12 +44,12 @@
       window.open(url,'_blank','noopener,noreferrer');
       setStatus(form,'Your enquiry has been prepared in WhatsApp. Please review the message and press Send in WhatsApp to submit it.');
     } else if(email){
-      const subject = encodeURIComponent(`Valcor Cleaning & Hygiene enquiry — ${data.service || data.subject || 'Website enquiry'}`);
+      const subject = encodeURIComponent(`Obsidian Cleaning enquiry — ${data.service || data.subject || 'Website enquiry'}`);
       window.location.href = `mailto:${email}?subject=${subject}&body=${encodeURIComponent(text)}`;
       setStatus(form,'Your email app should open with the enquiry prepared. Please review and send the email to complete your enquiry.');
     } else {
-      setStatus(form,'The form is valid, but Valcor’s WhatsApp number and email address have not yet been configured. Your enquiry has not been sent. Please add the verified contact details in js/config.js before publishing.','error');
-      if(navigator.clipboard?.writeText){navigator.clipboard.writeText(text).then(()=>setStatus(form,'Your enquiry is valid and has been copied to your clipboard. It has not been sent because Valcor’s WhatsApp number and email are not configured yet. Add the verified details in js/config.js before publishing.','error')).catch(()=>{});}
+      setStatus(form,'The form is valid, but Obsidian’s WhatsApp number and email address have not yet been configured. Your enquiry has not been sent. Please add the verified contact details in js/config.js before publishing.','error');
+      if(navigator.clipboard?.writeText){navigator.clipboard.writeText(text).then(()=>setStatus(form,'Your enquiry is valid and has been copied to your clipboard. It has not been sent because Obsidian’s WhatsApp number and email are not configured yet. Add the verified details in js/config.js before publishing.','error')).catch(()=>{});}
     }
   };
   document.querySelectorAll('[data-enquiry-form]').forEach(form=>{
@@ -65,7 +65,7 @@
     form.addEventListener('submit',event=>{
       event.preventDefault();
       if(!validate(form)){setStatus(form,'Please check the highlighted fields and complete all required information.','error');form.querySelector('[aria-invalid="true"]')?.focus();return;}
-      const data=values(form); const text=['VALCOR CLEANING & HYGIENE — CONTACT ENQUIRY','',`Name: ${data.name}`,`Email: ${data.email}`,`Telephone: ${data.phone||'Not provided'}`,`Subject: ${data.subject}`,'',`Message: ${data.message}`].join('\n');
+      const data=values(form); const text=['OBSIDIAN CLEANING — CONTACT ENQUIRY','',`Name: ${data.name}`,`Email: ${data.email}`,`Telephone: ${data.phone||'Not provided'}`,`Subject: ${data.subject}`,'',`Message: ${data.message}`].join('\n');
       deliver(form,data,text);
     });
   });

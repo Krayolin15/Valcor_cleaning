@@ -17,7 +17,7 @@
       visible = currentVisible(); if(!visible.length) return;
       index = (i + visible.length) % visible.length;
       const item = visible[index]; image.src = item.dataset.full; image.alt = item.dataset.alt || '';
-      caption.textContent = item.dataset.alt || 'Valcor Cleaning image';
+      caption.textContent = item.dataset.alt || 'Obsidian Cleaning image';
     };
     const open = item => {
       lastFocus = document.activeElement; visible = currentVisible(); show(visible.indexOf(item));

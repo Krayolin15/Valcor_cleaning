@@ -1,4 +1,4 @@
-/* VALCOR motion system — scroll reveals, depth, image movement and interaction polish. */
+/* OBSIDIAN motion system — scroll reveals, depth, image movement and interaction polish. */
 (() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const supportsObserver = 'IntersectionObserver' in window;

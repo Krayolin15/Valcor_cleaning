@@ -1,7 +1,7 @@
-/* Valcor profile reference values. Confirm all details before public launch. */
-window.VALCOR_CONFIG = {
-  companyName: 'Valcor Cleaning & Hygiene',
-  shortName: 'Valcor Cleaning',
+/* Obsidian profile reference values. Confirm all details before public launch. */
+window.OBSIDIAN_CONFIG = {
+  companyName: 'Obsidian Cleaning',
+  shortName: 'Obsidian Cleaning',
   tagline: 'Cleaner spaces. Brighter businesses.',
   groupName: 'Valcor Group',
   whatsappNumber: '', // Not specified in the supplied mock profile; do not assume telephone is WhatsApp.

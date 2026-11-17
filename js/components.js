@@ -1,7 +1,7 @@
 (() => {
-  const config = window.VALCOR_CONFIG || {};
-  const logo = 'assets/logos/valcor-cleaning-logo.png';
-  const footerLogo = 'assets/logos/valcor-cleaning-logo-white.png';
+  const config = window.OBSIDIAN_CONFIG || {};
+  const logo = 'assets/logos/obsidian-cleaning-logo.png';
+  const footerLogo = 'assets/logos/obsidian-cleaning-logo-white.png';
   const phone = config.telephone || 'Telephone to be confirmed';
   const phoneLink = config.telephoneLink || '';
   const email = config.email || 'Email to be confirmed';
@@ -22,7 +22,7 @@
   const header = `
     <div class="topbar"><div class="container topbar__inner"><div class="topbar__left"><span>A Valcor Group company</span><span class="topbar__dot"></span><span>Durban · KwaZulu-Natal</span></div><div class="topbar__right">${phoneMarkup}<span class="topbar__dot"></span>${emailMarkup}</div></div></div>
     <header class="site-header" data-header><div class="container nav-main">
-      <a class="brand" href="index.html" aria-label="Valcor Cleaning and Hygiene home"><img src="${logo}" alt="Valcor Cleaning — Cleaner Spaces. Brighter Businesses."></a>
+      <a class="brand" href="index.html" aria-label="Obsidian Cleaning home"><img src="${logo}" alt="Obsidian Cleaning — Cleaner Spaces. Brighter Businesses."></a>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="index.html" data-nav="index">Home</a><a href="about.html" data-nav="about">About</a>
         <div class="nav-services" data-services-menu><button class="nav-services__trigger" type="button" aria-expanded="false">Services <span>⌄</span></button><div class="nav-dropdown">${serviceMenu}</div></div>
@@ -32,18 +32,18 @@
       <button class="mobile-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-panel" data-mobile-toggle><span></span><span></span></button>
     </div></header>
     <nav class="mobile-panel" id="mobile-panel" aria-label="Mobile navigation" data-mobile-panel>
-      <a href="index.html">Home <span>↗</span></a><a href="about.html">About Valcor <span>↗</span></a>
+      <a href="index.html">Home <span>↗</span></a><a href="about.html">About Obsidian <span>↗</span></a>
       <div class="mobile-panel__services"><button type="button" data-mobile-services aria-expanded="false">Services <span>＋</span></button><div class="mobile-panel__sub">${serviceMenu}</div></div>
       <a href="industries.html">Who we serve <span>↗</span></a><a href="gallery.html">Our work <span>↗</span></a><a href="contact.html">Contact <span>↗</span></a>
       <a class="button button--dark" href="quote.html">Request a quote <span>↗</span></a>
     </nav>`;
   const footer = `
     <footer class="site-footer"><div class="container footer-main">
-      <div class="footer-brand"><a href="index.html"><img src="${footerLogo}" alt="Valcor Cleaning and Hygiene"></a><p>Professional cleaning and hygiene solutions for healthier, better-presented spaces. A Valcor Group company based in Durban, KwaZulu-Natal.</p><small class="footer-group">A VALCOR GROUP COMPANY</small></div>
-      <div class="footer-column"><h3>Explore</h3><a href="index.html">Home</a><a href="about.html">About Valcor</a><a href="services.html">Our service portfolio</a><a href="industries.html">Who we serve</a><a href="gallery.html">Illustrative gallery</a><a href="contact.html">Contact</a></div>
+      <div class="footer-brand"><a href="index.html"><img src="${footerLogo}" alt="Obsidian Cleaning"></a><p>Professional cleaning and hygiene solutions for healthier, better-presented spaces. A Valcor Group company based in Durban, KwaZulu-Natal.</p><small class="footer-group">A VALCOR GROUP COMPANY</small></div>
+      <div class="footer-column"><h3>Explore</h3><a href="index.html">Home</a><a href="about.html">About Obsidian</a><a href="services.html">Our service portfolio</a><a href="industries.html">Who we serve</a><a href="gallery.html">Illustrative gallery</a><a href="contact.html">Contact</a></div>
       <div class="footer-column"><h3>Services</h3><a href="contract-cleaning.html">Contract cleaning</a><a href="hygiene-services.html">Washroom hygiene</a><a href="consumables-supply.html">Consumables supply</a><a href="specialised-cleaning.html">Specialist cleaning</a><a href="project-once-off-cleaning.html">Project & once-off</a></div>
-      <div class="footer-column"><h3>Contact Valcor</h3><p>Durban, KwaZulu-Natal, South Africa</p>${phoneLink ? `<a href="tel:${phoneLink}">${phone}</a>` : `<p>${phone}</p>`}<a href="mailto:${email}">${email}</a><a href="quote.html">Request a quotation ↗</a><p class="footer-placeholder">Service scope, availability and pricing are confirmed in the relevant quotation and service agreement.</p></div>
-    </div><div class="container footer-bottom"><span>© <span data-year></span> Valcor Cleaning & Hygiene. All rights reserved.</span><div class="footer-bottom__links"><span>A Valcor Group company</span><span>Cleaner spaces. Brighter businesses.</span></div></div></footer>`;
+      <div class="footer-column"><h3>Contact Obsidian</h3><p>Durban, KwaZulu-Natal, South Africa</p>${phoneLink ? `<a href="tel:${phoneLink}">${phone}</a>` : `<p>${phone}</p>`}<a href="mailto:${email}">${email}</a><a href="quote.html">Request a quotation ↗</a><p class="footer-placeholder">Service scope, availability and pricing are confirmed in the relevant quotation and service agreement.</p></div>
+    </div><div class="container footer-bottom"><span>© <span data-year></span> Obsidian Cleaning. All rights reserved.</span><div class="footer-bottom__links"><span>A Valcor Group company</span><span>Cleaner spaces. Brighter businesses.</span></div></div></footer>`;
 
   document.querySelectorAll('[data-site-header]').forEach(el => el.innerHTML = header);
   document.querySelectorAll('[data-site-footer]').forEach(el => el.innerHTML = footer);
@@ -106,7 +106,7 @@
   setTimeout(hideLoader,1800);
   document.querySelectorAll('[data-whatsapp-link]').forEach(link => {
     const number = (config.whatsappNumber || '').replace(/\D/g,'');
-    if(number) { link.href = `https://wa.me/${number}`; link.target='_blank'; link.rel='noopener noreferrer'; link.setAttribute('aria-label','Chat with Valcor on WhatsApp'); }
-    else { link.href = 'quote.html'; link.setAttribute('aria-label','Request a Valcor enquiry'); const label = link.querySelector('.whatsapp-float__label'); if(label) label.textContent = 'Request an enquiry'; }
+    if(number) { link.href = `https://wa.me/${number}`; link.target='_blank'; link.rel='noopener noreferrer'; link.setAttribute('aria-label','Chat with Obsidian on WhatsApp'); }
+    else { link.href = 'quote.html'; link.setAttribute('aria-label','Request a Obsidian enquiry'); const label = link.querySelector('.whatsapp-float__label'); if(label) label.textContent = 'Request an enquiry'; }
   });
 })();
